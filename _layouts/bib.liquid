@@ -206,11 +206,7 @@
           class="btn btn-sm z-depth-0 scholar-citations"
           role="button"
         >
-          {% if page.lang == 'zh' -%}
-            引用 {% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}
-          {%- else -%}
-            Cited by {% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}
-          {%- endif %}
+          Cited by {% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}
         </a>
       {% endif %}
       {% if entry.arxiv %}
