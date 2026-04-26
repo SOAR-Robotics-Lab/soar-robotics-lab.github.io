@@ -404,21 +404,31 @@ ul.task-list input[type="checkbox"] {
   padding: 0.85rem 1.1rem 1rem;
   background: linear-gradient(135deg, rgba(96, 0, 96, 0.08), rgba(255, 255, 255, 0.24));
   border-top: 1px solid rgba(127, 127, 127, 0.16);
+  color: inherit;
   font-size: 0.82rem;
   line-height: 1.35;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+
+  &:hover,
+  &:focus-visible {
+    color: inherit;
+    text-decoration: none;
+    background: linear-gradient(135deg, rgba(96, 0, 96, 0.12), rgba(255, 255, 255, 0.36));
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(96, 0, 96, 0.28);
+    outline-offset: -3px;
+  }
 
   img {
     width: 42px;
     height: 42px;
     object-fit: contain;
-  }
-
-  span {
-    display: block;
-    color: var(--global-text-color-light);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
   }
 
   strong,

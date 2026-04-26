@@ -37,18 +37,17 @@ latest_posts:
       <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="Hao Xu">
       <div>
         <strong>Hao Xu</strong>
-        <span>Tenure-track Associate Professor · Nanjing University</span>
+        <span>Tenure-track Associate Professor</span>
         <a href="https://www.xuhao1.me/" rel="external nofollow noopener" target="_blank">Personal Homepage</a>
       </div>
     </div>
-    <div class="soar-hero__institution">
+    <a class="soar-hero__institution" href="https://is.nju.edu.cn/" rel="external nofollow noopener" target="_blank">
       <img src="{{ '/assets/img/nju-emblem-256.png' | relative_url }}" alt="Nanjing University emblem">
       <div>
-        <span>Institutional Home</span>
         <strong>Nanjing University</strong>
         <small>School of Intelligent Science and Technology</small>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 
