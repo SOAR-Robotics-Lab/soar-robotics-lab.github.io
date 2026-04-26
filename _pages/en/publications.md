@@ -11,7 +11,7 @@ translation_url: /publications/
 
 # Selected Publications
 
-The list below highlights representative robotics publications most relevant to SOARLAB. For the full and latest publication list, please refer to Hao Xu's personal homepage and Google Scholar.
+The list below highlights peer-reviewed publications most relevant to SOARLAB, excluding preprints and TCGM. For the full and latest publication list, please see [Google Scholar](https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=en).
 
 {% include bib_search.liquid %}
 

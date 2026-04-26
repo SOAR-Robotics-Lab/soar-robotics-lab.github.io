@@ -4,7 +4,7 @@ permalink: /people/
 title: 成员
 description: SOARLAB 团队成员。
 nav: true
-nav_order: 4
+nav_order: 5
 lang: zh
 translation_url: /en/people/
 ---

@@ -2,6 +2,10 @@ github_users:
   - xuhao1
 
 github_repos:
+  - SOAR-Robotics-Lab/OpenPrism
   - HKUST-Aerial-Robotics/D2SLAM
   - HKUST-Aerial-Robotics/Omni-swarm
+  - HKUST-Aerial-Robotics/OmniNxt
   - SYSU-STAR/RACER
+  - HKUST-Aerial-Robotics/FINT
+  - xuhao1/VINS-Fisheye

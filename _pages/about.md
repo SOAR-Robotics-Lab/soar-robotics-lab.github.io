@@ -7,16 +7,6 @@ translation_url: /en/
 subtitle: 飞行通用智能课题组
 description: SOARLAB（飞行通用智能课题组）由徐浩老师在南京大学智能科学与技术学院独立指导，研究具身智能、机器人 Agent、WAM/VLA、分布式感知、SLAM 与强化学习。
 
-profile:
-  align: right
-  image: xuhao_profile.png
-  image_circular: false
-  more_info: >
-    <p><strong>徐浩</strong></p>
-    <p>准聘副教授</p>
-    <p>南京大学智能科学与技术学院</p>
-    <p>苏州校区 · 太湖畔</p>
-
 selected_papers: true
 social: true
 
@@ -29,12 +19,28 @@ latest_posts:
   enabled: false
 ---
 
-<div class="p-4 p-md-5 mb-4 rounded soar-hero">
-  <p class="text-uppercase mb-2" style="letter-spacing: 0.16em; font-size: 0.78rem;">SOARLAB · 南京大学智能科学与技术学院</p>
-  <h2 class="mt-0 mb-3">面向具身智能、机器人 Agent 与飞行通用智能的研究型课题组</h2>
-  <p class="lead mb-0">
-    SOARLAB 由徐浩老师独立指导，即将在南京大学智能科学与技术学院开展工作。课题组围绕无人机、人形机器人和飞行人形机器人三个硬件平台，研究 Robotics Agent、WAM/VLA 驱动的机器人基础模型、分布式感知、SLAM 与强化学习等核心方向。
-  </p>
+<div class="soar-hero">
+  <div class="soar-hero__copy">
+    <p class="soar-eyebrow">SOARLAB · 南京大学智能科学与技术学院</p>
+    <h2>面向具身智能、机器人 Agent 与飞行通用智能的研究型课题组</h2>
+    <p>
+      SOARLAB 由徐浩老师独立指导，即将在南京大学智能科学与技术学院开展工作。课题组围绕无人机、人形机器人和飞行人形机器人三个硬件平台，研究 Robotics Agent、WAM/VLA 驱动的机器人基础模型、分布式感知、SLAM 与强化学习等核心方向。
+    </p>
+    <div class="soar-hero__actions">
+      <a class="btn btn-primary" href="{{ '/recruiting/' | relative_url }}">2027 招生</a>
+      <a class="btn btn-outline-primary" href="{{ '/publications/' | relative_url }}">代表论文</a>
+      <a class="btn btn-outline-primary" href="https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=zh-TW" rel="external nofollow noopener" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="soar-hero__profile">
+    <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="徐浩" class="soar-hero__photo">
+    <div class="soar-hero__meta">
+      <strong>徐浩</strong>
+      <span>准聘副教授</span>
+      <span>南京大学智能科学与技术学院</span>
+      <span>苏州校区 · 太湖畔</span>
+    </div>
+  </div>
 </div>
 
 ## 2027 届招生

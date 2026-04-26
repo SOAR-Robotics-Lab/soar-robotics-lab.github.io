@@ -7,3 +7,23 @@
 
 "Vision":
   color: "#009f36"
+
+"TRO":
+  url: https://www.ieee-ras.org/publications/t-ro
+  color: "#1f5f5b"
+
+"RAL":
+  url: https://www.ieee-ras.org/publications/ra-l
+  color: "#3c6e9f"
+
+"ICRA":
+  url: https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra
+  color: "#8b5e34"
+
+"IROS":
+  url: https://www.ieee-ras.org/conferences-workshops/financially-co-sponsored/iros
+  color: "#7a4c87"
+
+"Sensors":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7361
+  color: "#555555"

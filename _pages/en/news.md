@@ -3,7 +3,7 @@ layout: page
 title: news
 permalink: /en/news/
 nav: true
-nav_order: 5
+nav_order: 6
 lang: en
 translation_url: /news/
 ---

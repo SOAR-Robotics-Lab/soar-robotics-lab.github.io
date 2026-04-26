@@ -7,16 +7,6 @@ translation_url: /
 subtitle: Flying General Intelligence Lab
 description: SOARLAB, the Flying General Intelligence Lab led by Hao Xu at the School of Intelligent Science and Technology, Nanjing University, studies embodied intelligence, robotics agents, WAM/VLA, distributed perception, SLAM, and reinforcement learning.
 
-profile:
-  align: right
-  image: xuhao_profile.png
-  image_circular: false
-  more_info: >
-    <p><strong>Hao Xu</strong></p>
-    <p>Tenure-track Associate Professor</p>
-    <p>School of Intelligent Science and Technology</p>
-    <p>Nanjing University · Suzhou Campus</p>
-
 selected_papers: true
 social: true
 
@@ -27,12 +17,28 @@ latest_posts:
   enabled: false
 ---
 
-<div class="p-4 p-md-5 mb-4 rounded soar-hero">
-  <p class="text-uppercase mb-2" style="letter-spacing: 0.16em; font-size: 0.78rem;">SOARLAB · School of Intelligent Science and Technology, Nanjing University</p>
-  <h2 class="mt-0 mb-3">A research group for embodied intelligence, robotics agents, and flying general intelligence</h2>
-  <p class="lead mb-0">
-    SOARLAB is led by Hao Xu at the School of Intelligent Science and Technology, Nanjing University. We build embodied and collaborative intelligence for aerial robots, humanoids, and emerging flying humanoid platforms, with a focus on robotics agents, world/action models, VLA-style robot foundation models, distributed perception, SLAM, and reinforcement learning.
-  </p>
+<div class="soar-hero">
+  <div class="soar-hero__copy">
+    <p class="soar-eyebrow">SOARLAB · School of Intelligent Science and Technology, Nanjing University</p>
+    <h2>A research group for embodied intelligence, robotics agents, and flying general intelligence</h2>
+    <p>
+      SOARLAB is led by Hao Xu at the School of Intelligent Science and Technology, Nanjing University. We build embodied and collaborative intelligence for aerial robots, humanoids, and emerging flying humanoid platforms, with a focus on robotics agents, world/action models, VLA-style robot foundation models, distributed perception, SLAM, and reinforcement learning.
+    </p>
+    <div class="soar-hero__actions">
+      <a class="btn btn-primary" href="{{ '/en/recruiting/' | relative_url }}">2027 Admissions</a>
+      <a class="btn btn-outline-primary" href="{{ '/en/publications/' | relative_url }}">Publications</a>
+      <a class="btn btn-outline-primary" href="https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=en" rel="external nofollow noopener" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="soar-hero__profile">
+    <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="Hao Xu" class="soar-hero__photo">
+    <div class="soar-hero__meta">
+      <strong>Hao Xu</strong>
+      <span>Tenure-track Associate Professor</span>
+      <span>School of Intelligent Science and Technology</span>
+      <span>Nanjing University · Suzhou Campus</span>
+    </div>
+  </div>
 </div>
 
 ## 2027 Admissions

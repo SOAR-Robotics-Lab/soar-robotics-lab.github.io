@@ -4,7 +4,7 @@ permalink: /en/people/
 title: people
 description: SOARLAB members.
 nav: true
-nav_order: 4
+nav_order: 5
 lang: en
 translation_url: /people/
 ---

@@ -261,6 +261,237 @@ ul.task-list input[type="checkbox"] {
 }
 // SOARLAB homepage hero card.
 .soar-hero {
-  background: linear-gradient(135deg, rgba(27, 96, 96, 0.12), rgba(222, 154, 63, 0.12));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 34%);
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding: clamp(1.5rem, 4vw, 3.25rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(31, 95, 91, 0.18), transparent 32%),
+    linear-gradient(135deg, rgba(27, 96, 96, 0.11), rgba(222, 154, 63, 0.12));
   border: 1px solid var(--global-divider-color);
+  border-radius: 1.1rem;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    max-width: 13em;
+    margin: 0 0 1rem;
+    font-size: clamp(2.15rem, 4.6vw, 4.05rem);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    max-width: 42rem;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1.72;
+  }
+}
+
+.soar-eyebrow {
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem !important;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.soar-hero__copy {
+  align-self: center;
+}
+
+.soar-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+
+  .btn {
+    margin: 0;
+    border-radius: 999px;
+    text-transform: none;
+  }
+}
+
+.soar-hero__profile {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  min-width: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(127, 127, 127, 0.18);
+  border-radius: 0.85rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.soar-hero__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.soar-hero__meta {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem 1.15rem;
+  font-size: 1rem;
+  line-height: 1.45;
+
+  strong {
+    font-size: 1.2rem;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+html[data-theme="dark"] .soar-hero__profile {
+  background: rgba(24, 28, 31, 0.72);
+}
+
+@media (max-width: 991px) {
+  .soar-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .soar-hero__profile {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 575px) {
+  .soar-hero {
+    padding: 1.25rem;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+
+  .soar-hero__actions .btn {
+    width: 100%;
+  }
+}
+
+.soar-open-hero {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.35rem;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(232, 86, 39, 0.18), transparent 32%),
+    linear-gradient(135deg, rgba(30, 162, 171, 0.12), rgba(15, 41, 70, 0.06));
+  border: 1px solid var(--global-divider-color);
+  border-radius: 1rem;
+
+  img {
+    width: 132px;
+    height: 132px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  }
+
+  h1 {
+    margin: 0 0 0.55rem;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+  }
+
+  p:last-child {
+    max-width: 48rem;
+    margin-bottom: 0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+}
+
+.soar-open-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.soar-open-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.2rem;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.9rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(31, 95, 91, 0.55);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    margin: 0 0 0.55rem;
+    font-size: 1.45rem;
+  }
+
+  p {
+    line-height: 1.65;
+  }
+}
+
+.soar-open-card--featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(31, 95, 91, 0.12), rgba(232, 86, 39, 0.1)), var(--global-card-bg-color);
+}
+
+.soar-open-card__tag {
+  margin-bottom: 0.55rem;
+  color: var(--global-theme-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.soar-open-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.25rem 0.8rem;
+    border: 1px solid var(--global-theme-color);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .soar-open-hero,
+  .soar-open-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .soar-open-hero img {
+    width: 104px;
+    height: 104px;
+  }
 }
