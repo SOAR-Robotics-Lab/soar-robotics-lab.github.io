@@ -3,8 +3,8 @@ const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
 ninja.data = [{
-    id: "nav-首页",
-    title: "首页",
+    id: "nav-home",
+    title: "home",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
@@ -14,84 +14,84 @@ ninja.data = [{
           description: "2027 admissions information for SOARLAB.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/en/recruiting/";
+            window.location.href = "/recruiting/";
           },
         },{id: "nav-招生",
           title: "招生",
           description: "SOARLAB 2027 届招生信息。",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/recruiting/";
+            window.location.href = "/zh/recruiting/";
           },
         },{id: "nav-research",
           title: "research",
           description: "Research directions and platforms of SOARLAB.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/en/research/";
+            window.location.href = "/research/";
           },
         },{id: "nav-研究",
           title: "研究",
           description: "SOARLAB 研究方向与平台。",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/research/";
+            window.location.href = "/zh/research/";
           },
         },{id: "nav-publications",
           title: "publications",
           description: "Selected publications by Hao Xu and collaborators.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/en/publications/";
+            window.location.href = "/publications/";
           },
         },{id: "nav-论文",
           title: "论文",
           description: "徐浩老师与合作者的代表论文。",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/publications/";
+            window.location.href = "/zh/publications/";
           },
         },{id: "nav-open-source",
           title: "open source",
           description: "Open-source projects, paper code, and research tools from SOARLAB.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/en/open-source/";
+            window.location.href = "/open-source/";
           },
         },{id: "nav-开源",
           title: "开源",
           description: "SOARLAB 的开源项目、论文代码和研究工具。",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/open-source/";
+            window.location.href = "/zh/open-source/";
           },
         },{id: "nav-people",
           title: "people",
           description: "SOARLAB members.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/en/people/";
+            window.location.href = "/people/";
           },
         },{id: "nav-成员",
           title: "成员",
           description: "SOARLAB 团队成员。",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/people/";
+            window.location.href = "/zh/people/";
           },
         },{id: "nav-news",
           title: "news",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/en/news/";
+            window.location.href = "/news/";
           },
         },{id: "nav-新闻",
           title: "新闻",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/news/";
+            window.location.href = "/zh/news/";
           },
         },{id: "books-the-godfather",
           title: 'The Godfather',
