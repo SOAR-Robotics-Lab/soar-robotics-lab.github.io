@@ -917,10 +917,35 @@ body.soar-game-active {
   }
 }
 
+.soar-game__forms {
+  padding: 0.62rem 0.72rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(120, 229, 236, 0.16);
+  border-radius: 0.8rem;
+
+  strong {
+    color: #ffffff;
+  }
+}
+
+.soar-game__form {
+  border-color: rgba(255, 255, 255, 0.42) !important;
+
+  &[data-form="flight"] {
+    color: #04131d !important;
+    background: linear-gradient(135deg, #67ddf1, #d9fbff) !important;
+  }
+
+  &[data-form="walk"] {
+    color: #211007 !important;
+    background: linear-gradient(135deg, #ffb248, #ffe1a3) !important;
+  }
+}
+
 .soar-game--playing .soar-game__panel {
   width: min(18rem, calc(100vw - 2rem));
-  opacity: 0.42;
-  transform: translateY(calc(100% - 3.4rem));
+  opacity: 0.72;
+  transform: none;
   transition:
     opacity 0.18s ease,
     transform 0.18s ease;
@@ -928,7 +953,12 @@ body.soar-game-active {
   &:hover,
   &:focus-within {
     opacity: 1;
-    transform: translateY(0);
+  }
+
+  .soar-game__controls,
+  .soar-game__forms,
+  .soar-game__mobile {
+    display: none;
   }
 }
 
@@ -986,7 +1016,10 @@ body.soar-game-active {
 
   .soar-game--playing .soar-game__panel {
     width: calc(100vw - 1.2rem);
-    transform: translateY(calc(100% - 3.2rem));
+
+    .soar-game__summary {
+      display: none;
+    }
   }
 }
 

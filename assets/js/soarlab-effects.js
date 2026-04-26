@@ -104,8 +104,19 @@
           pause: "暂停",
           resume: "继续",
           ready: "按 Enter 开始，或点击开始按钮",
-          controls: "WASD / 方向键移动，空格发射，P 暂停，Esc 退出。",
-          mobileControls: "移动端可倾斜手机控制方向，也可拖动角色微调。",
+          controls: "WASD / 方向键移动，空格发射，F 或 Shift 切换飞行/行走形态，P 暂停，Esc 退出。",
+          mobileControls: "移动端可倾斜手机控制方向，也可拖动角色微调；点击“切换形态”按钮变形。",
+          switchForm: "切换形态",
+          flight: "飞行",
+          walk: "行走",
+          flightInfo: "飞行形态：速度快、双发、单发伤害低，可通过空中试飞门。",
+          walkInfo: "行走形态：速度慢、重炮、伤害高，可通过地面装配区。",
+          airGate: "空中试飞门",
+          groundGate: "地面装配区",
+          wrongAir: "需要切到飞行形态",
+          wrongGround: "需要切到行走形态",
+          gateClear: "形态匹配，继续推进",
+          gateMiss: "形态不匹配，实验失败",
           score: "Score",
           lives: "Lives",
           wave: "Wave",
@@ -123,8 +134,19 @@
           pause: "Pause",
           resume: "Resume",
           ready: "Press Enter or click Start",
-          controls: "WASD / arrow keys to move, Space to fire, P to pause, Esc to exit.",
-          mobileControls: "On mobile, tilt your phone to steer; touch-drag is a fallback.",
+          controls: "WASD / arrow keys to move, Space to fire, F or Shift to transform, P to pause, Esc to exit.",
+          mobileControls: "On mobile, tilt your phone to steer; touch-drag is a fallback. Tap Transform to switch modes.",
+          switchForm: "Transform",
+          flight: "Flight",
+          walk: "Walk",
+          flightInfo: "Flight mode: fast movement, twin low-damage shots, clears aerial test gates.",
+          walkInfo: "Ground mode: slower movement, heavy high-damage shots, clears ground assembly zones.",
+          airGate: "Aerial Test Gate",
+          groundGate: "Ground Assembly Zone",
+          wrongAir: "Switch to flight mode",
+          wrongGround: "Switch to ground mode",
+          gateClear: "Form matched; keep pushing",
+          gateMiss: "Wrong form; experiment failed",
           score: "Score",
           lives: "Lives",
           wave: "Wave",
@@ -136,6 +158,7 @@
 
     const spriteFiles = {
       player: "player",
+      playerWalker: "player-walker",
       bullet: "bullet",
       missile: "missile",
       shield: "shield",
@@ -203,6 +226,48 @@
       },
     ];
 
+    const formProfiles = {
+      flight: {
+        sprite: "player",
+        label: text.flight,
+        speed: 340,
+        damage: 1,
+        bulletSpeed: -540,
+        bulletSize: 18,
+        cooldown: 0.12,
+        burstColor: "#57d8ff",
+      },
+      walk: {
+        sprite: "playerWalker",
+        label: text.walk,
+        speed: 210,
+        damage: 3,
+        bulletSpeed: -395,
+        bulletSize: 28,
+        cooldown: 0.32,
+        burstColor: "#ffb248",
+      },
+    };
+
+    const gateTypes = [
+      {
+        requiredForm: "flight",
+        en: text.airGate,
+        zh: text.airGate,
+        speed: 58,
+        score: 90,
+        size: 104,
+      },
+      {
+        requiredForm: "walk",
+        en: text.groundGate,
+        zh: text.groundGate,
+        speed: 44,
+        score: 120,
+        size: 112,
+      },
+    ];
+
     let overlay;
     let canvas;
     let context;
@@ -212,6 +277,7 @@
     let summaryNode;
     let startButton;
     let pauseButton;
+    let formButton;
     let animationFrame = 0;
     let lastTime = 0;
     let starting = false;
@@ -224,6 +290,8 @@
       lives: 3,
       wave: 1,
       spawnTimer: 0,
+      gateTimer: 6,
+      nextGateForm: "flight",
       eliteIndex: 0,
       eliteTimer: 10,
       finalQueued: false,
@@ -239,6 +307,9 @@
       motionX: 0,
       motionY: 0,
       motionStatus: "",
+      form: "flight",
+      formFlash: 0,
+      formMessage: "",
       player: { x: 0, y: 0, size: 48 },
       bullets: [],
       enemies: [],
@@ -321,9 +392,11 @@
           <h2 id="soar-game-title">${text.title}</h2>
           <p class="soar-game__summary">${text.subtitle}</p>
           <p class="soar-game__controls">${text.controls}</p>
+          <p class="soar-game__forms"><strong>${text.flight}</strong>: ${text.flightInfo}<br><strong>${text.walk}</strong>: ${text.walkInfo}</p>
           <p class="soar-game__mobile">${text.mobileControls}</p>
           <div class="soar-game__actions">
             <button class="btn btn-primary soar-game__start" type="button">${text.start}</button>
+            <button class="btn btn-outline-primary soar-game__form" type="button">${text.switchForm}</button>
             <button class="btn btn-outline-primary soar-game__pause" type="button">${text.pause}</button>
             <button class="btn btn-outline-primary soar-game__exit" type="button">${text.close}</button>
           </div>
@@ -340,10 +413,12 @@
       summaryNode = panel.querySelector(".soar-game__summary");
       startButton = overlay.querySelector(".soar-game__start");
       pauseButton = overlay.querySelector(".soar-game__pause");
+      formButton = overlay.querySelector(".soar-game__form");
 
       overlay.querySelector(".soar-game__exit").addEventListener("click", closeGame);
       startButton.addEventListener("click", startGame);
       pauseButton.addEventListener("click", togglePause);
+      formButton.addEventListener("click", toggleForm);
 
       if (coarsePointer) {
         canvas.addEventListener("pointerdown", handleTouchMove);
@@ -371,6 +446,7 @@
       summaryNode.textContent = text.subtitle;
       startButton.textContent = text.start;
       pauseButton.textContent = text.pause;
+      panel.classList.remove("soar-game__panel--result");
       startButton.focus({ preventScroll: true });
     };
 
@@ -380,6 +456,7 @@
       overlay.classList.add("soar-game--active", "soar-game--playing");
       overlay.classList.remove("soar-game--intro", "soar-game--ended");
       document.body.classList.add("soar-game-active");
+      panel?.classList.remove("soar-game__panel--result");
       setMascotGameMode(true);
       renderHud(isZh ? "正在装载图标..." : "Loading sprites...");
       starting = true;
@@ -392,6 +469,7 @@
       if (!overlay?.classList.contains("soar-game--active")) return;
       resetState();
       renderHud();
+      startButton.textContent = text.restart;
       cancelAnimationFrame(animationFrame);
       lastTime = performance.now();
       animationFrame = requestAnimationFrame(loop);
@@ -411,12 +489,17 @@
       state.lives = 3;
       state.wave = 1;
       state.spawnTimer = 0.6;
+      state.gateTimer = 4.2;
+      state.nextGateForm = "flight";
       state.eliteIndex = 0;
       state.eliteTimer = 8;
       state.finalQueued = false;
       state.fireCooldown = 0;
       state.invulnerable = 1.25;
       state.touchActive = false;
+      state.form = "flight";
+      state.formFlash = 0.8;
+      state.formMessage = text.flightInfo;
       state.bullets = [];
       state.enemies = [];
       state.enemyShots = [];
@@ -424,6 +507,7 @@
       primeOpeningWave();
       document.querySelectorAll(".soar-nav-spawner").forEach((link) => link.classList.remove("soar-nav-spawner"));
       state.spawners.forEach((spawner) => spawner.element?.classList.add("soar-nav-spawner"));
+      updateFormButton();
     };
 
     const primeOpeningWave = () => {
@@ -478,6 +562,8 @@
       window.removeEventListener("deviceorientation", handleDeviceOrientation, true);
       state.motionEnabled = false;
       state.motionStatus = "";
+      state.form = "flight";
+      updateFormButton();
       overlay.classList.remove("soar-game--active", "soar-game--intro", "soar-game--ended", "soar-game--playing");
       document.body.classList.remove("soar-game-active");
       document.querySelectorAll(".soar-nav-spawner").forEach((link) => link.classList.remove("soar-nav-spawner"));
@@ -499,18 +585,38 @@
       }
     }
 
+    function toggleForm() {
+      if (!overlay?.classList.contains("soar-game--active")) return;
+      state.form = state.form === "flight" ? "walk" : "flight";
+      const profile = formProfiles[state.form];
+      state.formFlash = 0.62;
+      state.formMessage = state.form === "flight" ? text.flightInfo : text.walkInfo;
+      addBurst(state.player.x, state.player.y, profile.burstColor, 16, 0.48);
+      updateFormButton();
+      setMascotGameMode(true);
+      renderHud();
+    }
+
+    const updateFormButton = () => {
+      if (!formButton) return;
+      formButton.textContent = `${text.switchForm}: ${formProfiles[state.form].label}`;
+      formButton.dataset.form = state.form;
+    };
+
     const setMascotGameMode = (active) => {
       const mascot = document.querySelector(".soar-mascot");
       if (!mascot) return;
       mascot.classList.toggle("soar-mascot--game", active);
       const image = mascot.querySelector("img");
-      if (image) image.src = active ? "/assets/img/soar-game/player.png" : "/assets/img/soarlab-128.png";
+      if (image) image.src = active ? `/assets/img/soar-game/${spriteFiles[formProfiles[state.form].sprite]}.png` : "/assets/img/soarlab-128.png";
     };
 
     const renderHud = (extra = "") => {
       if (!hud) return;
       const motion = state.motionStatus ? ` · ${state.motionStatus}` : "";
-      hud.textContent = `${text.score}: ${state.score} · ${text.lives}: ${state.lives} · ${text.wave}: ${state.wave}${motion}${extra ? ` · ${extra}` : ""}`;
+      const form = `${text.switchForm}: ${formProfiles[state.form].label}`;
+      const message = extra || state.formMessage;
+      hud.textContent = `${text.score}: ${state.score} · ${text.lives}: ${state.lives} · ${text.wave}: ${state.wave} · ${form}${motion}${message ? ` · ${message}` : ""}`;
     };
 
     const drawSprite = (sprite, x, y, size, rotation = 0, alpha = 1) => {
@@ -535,11 +641,15 @@
       context.clearRect(0, 0, state.width, state.height);
       drawGameAtmosphere();
 
-      state.bullets.forEach((bullet) => drawSprite("bullet", bullet.x, bullet.y, bullet.size, -0.08));
+      state.bullets.forEach((bullet) => drawSprite(bullet.sprite || "bullet", bullet.x, bullet.y, bullet.size, -0.08));
       state.enemyShots.forEach((shot) => drawSprite("missile", shot.x, shot.y, shot.size, Math.atan2(shot.vy, shot.vx) + Math.PI / 2));
 
       state.enemies.forEach((enemy) => {
-        drawSprite(enemy.sprite, enemy.x, enemy.y, enemy.size, Math.sin(enemy.y / 72) * 0.08);
+        if (enemy.gate) {
+          drawGate(enemy);
+        } else {
+          drawSprite(enemy.sprite, enemy.x, enemy.y, enemy.size, Math.sin(enemy.y / 72) * 0.08);
+        }
         const label = isZh ? enemy.zh : enemy.en;
         context.font = enemy.elite ? "700 13px system-ui, sans-serif" : "600 10px system-ui, sans-serif";
         context.textAlign = "center";
@@ -562,7 +672,17 @@
 
       const blink = state.invulnerable > 0 && Math.floor(performance.now() / 90) % 2 === 0;
       if (state.invulnerable > 0) drawSprite("shield", state.player.x, state.player.y, state.player.size * 1.35, 0, 0.72);
-      drawSprite("player", state.player.x, state.player.y, state.player.size, -0.05, blink ? 0.55 : 1);
+      const formProfile = formProfiles[state.form];
+      const bob = state.form === "flight" ? Math.sin(performance.now() / 110) * 3 : Math.abs(Math.sin(performance.now() / 105)) * 2;
+      drawSprite(
+        formProfile.sprite,
+        state.player.x,
+        state.player.y - bob,
+        state.player.size,
+        state.form === "flight" ? -0.05 : Math.sin(performance.now() / 140) * 0.05,
+        blink ? 0.55 : 1
+      );
+      if (state.formFlash > 0) drawFormRing(formProfile);
     };
 
     const drawGameAtmosphere = () => {
@@ -594,11 +714,82 @@
       context.fillRect(left, top, width * Math.max(0, enemy.hp / enemy.maxHp), 5);
     };
 
+    const drawGate = (gate) => {
+      const correct = gate.requiredForm === state.form;
+      context.save();
+      context.translate(gate.x, gate.y);
+      context.globalAlpha = 0.88;
+      context.strokeStyle = gate.requiredForm === "flight" ? "rgba(80, 218, 255, 0.95)" : "rgba(255, 177, 72, 0.95)";
+      context.fillStyle = gate.requiredForm === "flight" ? "rgba(80, 218, 255, 0.12)" : "rgba(255, 177, 72, 0.12)";
+      context.lineWidth = correct ? 5 : 3;
+      if (gate.requiredForm === "flight") {
+        context.beginPath();
+        context.ellipse(0, 0, gate.size * 0.46, gate.size * 0.28, Math.sin(gate.y / 70) * 0.1, 0, Math.PI * 2);
+        context.fill();
+        context.stroke();
+        drawSprite("player", 0, -2, gate.size * 0.32, 0, 0.38);
+      } else {
+        context.beginPath();
+        context.roundRect(-gate.size * 0.52, -gate.size * 0.23, gate.size * 1.04, gate.size * 0.46, 14);
+        context.fill();
+        context.stroke();
+        for (let i = -2; i <= 2; i += 1) {
+          context.beginPath();
+          context.arc(i * gate.size * 0.17, gate.size * 0.25, 4, 0, Math.PI * 2);
+          context.fill();
+        }
+        drawSprite("playerWalker", 0, -3, gate.size * 0.34, 0, 0.42);
+      }
+      context.restore();
+    };
+
+    const drawFormRing = (profile) => {
+      const alpha = Math.max(0, state.formFlash / 0.62);
+      context.save();
+      context.globalAlpha = alpha;
+      context.strokeStyle = profile.burstColor;
+      context.lineWidth = 3;
+      context.beginPath();
+      context.arc(state.player.x, state.player.y, state.player.size * (1.1 + (1 - alpha) * 0.85), 0, Math.PI * 2);
+      context.stroke();
+      context.fillStyle = "rgba(4, 13, 24, 0.72)";
+      context.font = "700 12px system-ui, sans-serif";
+      context.textAlign = "center";
+      context.fillText(profile.label, state.player.x, state.player.y + state.player.size * 0.78);
+      context.restore();
+    };
+
     const fire = () => {
       if (state.fireCooldown > 0 || state.mode !== "playing") return;
-      state.bullets.push({ x: state.player.x - 9, y: state.player.y - 25, vy: -520, size: 20 });
-      state.bullets.push({ x: state.player.x + 9, y: state.player.y - 25, vy: -520, size: 20 });
-      state.fireCooldown = 0.13;
+      const profile = formProfiles[state.form];
+      if (state.form === "flight") {
+        state.bullets.push({
+          x: state.player.x - 9,
+          y: state.player.y - 25,
+          vy: profile.bulletSpeed,
+          size: profile.bulletSize,
+          damage: profile.damage,
+          sprite: "bullet",
+        });
+        state.bullets.push({
+          x: state.player.x + 9,
+          y: state.player.y - 25,
+          vy: profile.bulletSpeed,
+          size: profile.bulletSize,
+          damage: profile.damage,
+          sprite: "bullet",
+        });
+      } else {
+        state.bullets.push({
+          x: state.player.x,
+          y: state.player.y - 23,
+          vy: profile.bulletSpeed,
+          size: profile.bulletSize,
+          damage: profile.damage,
+          sprite: "missile",
+        });
+      }
+      state.fireCooldown = profile.cooldown;
     };
 
     const spawnEnemy = (forceElite = false, sourceOffset = 0) => {
@@ -629,7 +820,29 @@
       addBurst(spawner.x, spawner.y, "rgba(42, 196, 207, 0.9)", 7, 0.28);
     };
 
+    const spawnGate = () => {
+      const type = gateTypes.find((gate) => gate.requiredForm === state.nextGateForm) || gateTypes[0];
+      const x = Math.max(type.size / 2 + 18, Math.min(state.width - type.size / 2 - 18, state.width * (0.25 + Math.random() * 0.5)));
+      state.enemies.push({
+        ...type,
+        gate: true,
+        hp: 999,
+        maxHp: 999,
+        x,
+        y: 84,
+        vx: 0,
+        vy: type.speed + state.wave * 2,
+        size: type.size,
+        shootTimer: 999,
+      });
+      state.nextGateForm = state.nextGateForm === "flight" ? "walk" : "flight";
+      state.gateTimer = 9.5 + Math.random() * 3.5;
+      state.formMessage = type.requiredForm === "flight" ? text.flightInfo : text.walkInfo;
+      addBurst(x, 84, type.requiredForm === "flight" ? "#57d8ff" : "#ffb248", 14, 0.42);
+    };
+
     const enemyFire = (enemy) => {
+      if (enemy.gate) return;
       const angle = Math.atan2(state.player.y - enemy.y, state.player.x - enemy.x);
       const speed = enemy.elite ? 185 : 145;
       const spread = enemy.elite ? [-0.22, 0, 0.22] : [0];
@@ -661,8 +874,24 @@
 
     const collide = (a, b, ratio = 0.38) => Math.abs(a.x - b.x) < (a.size + b.size) * ratio && Math.abs(a.y - b.y) < (a.size + b.size) * ratio;
 
+    const clearGate = (gate) => {
+      gate.dead = true;
+      state.score += gate.score;
+      state.wave += gate.requiredForm === "walk" ? 1 : 0;
+      state.formMessage = `${text.gateClear}: ${formProfiles[state.form].label}`;
+      addBurst(gate.x, gate.y, formProfiles[state.form].burstColor, 24, 0.68);
+    };
+
+    const failGate = (gate, damage = 1) => {
+      gate.dead = true;
+      const required = gate.requiredForm === "flight" ? text.wrongAir : text.wrongGround;
+      state.formMessage = `${text.gateMiss}: ${required}`;
+      addBurst(gate.x, gate.y, "#ff5a45", 18, 0.58);
+      hitPlayer(damage, false);
+    };
+
     const update = (delta) => {
-      const speed = 300;
+      const speed = formProfiles[state.form].speed;
       let dx = 0;
       let dy = 0;
       if (keys.has("ArrowLeft") || keys.has("a")) dx -= 1;
@@ -692,12 +921,18 @@
       if (keys.has(" ")) fire();
       state.fireCooldown = Math.max(0, state.fireCooldown - delta);
       state.invulnerable = Math.max(0, state.invulnerable - delta);
+      state.formFlash = Math.max(0, state.formFlash - delta);
       state.spawnTimer -= delta;
+      state.gateTimer -= delta;
       state.eliteTimer -= delta;
 
       if (state.spawnTimer <= 0) {
         spawnEnemy();
         state.spawnTimer = Math.max(0.42, 1.05 - state.wave * 0.055);
+      }
+
+      if (state.gateTimer <= 0) {
+        spawnGate();
       }
 
       if (state.score > 1200 && !state.finalQueued) {
@@ -737,10 +972,10 @@
 
       state.bullets.forEach((bullet) => {
         state.enemies.forEach((enemy) => {
-          if (enemy.dead || bullet.dead || !collide(bullet, enemy, 0.36)) return;
+          if (enemy.gate || enemy.dead || bullet.dead || !collide(bullet, enemy, 0.36)) return;
           bullet.dead = true;
-          enemy.hp -= 1;
-          addBurst(bullet.x, bullet.y, "#57d8ff", 6, 0.34);
+          enemy.hp -= bullet.damage || 1;
+          addBurst(bullet.x, bullet.y, formProfiles[state.form].burstColor, 6, 0.34);
           if (enemy.hp <= 0) {
             enemy.dead = true;
             state.score += enemy.score;
@@ -750,9 +985,18 @@
         });
       });
 
+      state.enemies.forEach((enemy) => {
+        if (!enemy.gate || enemy.dead || !collide(state.player, enemy, 0.34)) return;
+        if (enemy.requiredForm === state.form) {
+          clearGate(enemy);
+        } else {
+          failGate(enemy);
+        }
+      });
+
       if (state.invulnerable <= 0) {
         state.enemies.forEach((enemy) => {
-          if (enemy.dead || !collide(state.player, enemy, 0.34)) return;
+          if (enemy.gate || enemy.dead || !collide(state.player, enemy, 0.34)) return;
           enemy.dead = true;
           hitPlayer(enemy.elite ? 2 : 1);
         });
@@ -768,6 +1012,10 @@
         if (enemy.dead) return;
         if (enemy.y > state.height + enemy.size) {
           enemy.dead = true;
+          if (enemy.gate) {
+            failGate(enemy, 1);
+            return;
+          }
           hitPlayer(1, false);
         }
       });
@@ -845,7 +1093,12 @@
       }
       if (event.key === "Enter" && state.mode !== "playing") startGame();
       if (event.key.toLowerCase() === "p") togglePause();
-      if ([" ", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) event.preventDefault();
+      if ((event.key.toLowerCase() === "f" || event.key === "Shift") && state.mode === "playing") {
+        event.preventDefault();
+        toggleForm();
+        return;
+      }
+      if ([" ", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Shift"].includes(event.key)) event.preventDefault();
       keys.add(event.key.length === 1 ? event.key.toLowerCase() : event.key);
     });
 
