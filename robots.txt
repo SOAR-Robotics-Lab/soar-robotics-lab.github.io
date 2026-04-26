@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://xuhao1.me/sitemap.xml
