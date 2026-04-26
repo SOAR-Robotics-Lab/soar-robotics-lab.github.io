@@ -597,9 +597,22 @@ html[data-theme="dark"] .soar-hero__institution {
   }
 }
 
+.soar-open-card__image {
+  width: 100%;
+  height: 180px;
+  margin: 0 0 1rem;
+  object-fit: cover;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.7rem;
+}
+
 .soar-open-card--featured {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, rgba(31, 95, 91, 0.12), rgba(232, 86, 39, 0.1)), var(--global-card-bg-color);
+
+  .soar-open-card__image {
+    height: min(320px, 38vw);
+  }
 }
 
 .soar-open-card__tag {
@@ -808,6 +821,7 @@ body.soar-game-active {
 }
 
 .soar-game__shell {
+  box-sizing: border-box;
   width: min(920px, 100%);
   max-height: min(94vh, 820px);
   display: grid;
@@ -993,17 +1007,51 @@ body.soar-game-active {
   }
 
   .soar-game__shell {
-    grid-template-columns: 1fr;
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "topbar"
       "stage"
       "hud"
       "actions";
+    min-width: 0;
+    gap: 0.65rem;
+    padding: 0.75rem;
     max-height: 96vh;
+    overflow-x: hidden;
+  }
+
+  .soar-game__topbar h2 {
+    font-size: 1.35rem;
+  }
+
+  .soar-game__stage {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .soar-game__canvas {
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .soar-game__intro,
+  .soar-game__message {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.9rem;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
   }
 }
 

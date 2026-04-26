@@ -24,6 +24,7 @@ translation_url: /open-source/
 <div class="soar-open-grid">
   <article class="soar-open-card soar-open-card--featured">
     <p class="soar-open-card__tag">SOARLAB · Agent Tooling</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/openprism.jpg' | relative_url }}" alt="OpenPrism architecture preview">
     <h3>OpenPrism</h3>
     <p class="soar-live-stars" data-github-repo="SOAR-Robotics-Lab/OpenPrism" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>面向 OpenCode 生态的多层级绘图插件，把 Mermaid 结构图、Matplotlib 论文级可视化、Plotly.js 交互图表和 AIGC 图像生成带到 AI coding agent 工作流中。</p>
@@ -38,6 +39,7 @@ translation_url: /open-source/
 <div class="soar-open-grid">
   <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2025</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/fint.jpg' | relative_url }}" alt="FINT tunnel flight preview">
     <h3>FINT</h3>
     <p class="soar-live-stars" data-github-repo="HKUST-Aerial-Robotics/FINT" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>对应论文 <em>Autonomous Flights Inside Narrow Tunnels</em>，面向狭窄隧道自主飞行的系统与代码。</p>
@@ -49,6 +51,7 @@ translation_url: /open-source/
 
   <article class="soar-open-card">
     <p class="soar-open-card__tag">IROS 2024</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/omninxt.jpg' | relative_url }}" alt="OmniNxt system preview">
     <h3>OmniNxt</h3>
     <p class="soar-live-stars" data-github-repo="HKUST-Aerial-Robotics/OmniNxt" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>开源、紧凑、具备全向视觉感知能力的无人机平台，支持全向定位、稠密建图与真实飞行验证。</p>
@@ -61,6 +64,7 @@ translation_url: /open-source/
 
   <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2024</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/d2slam.jpg' | relative_url }}" alt="D2SLAM system preview">
     <h3>D2SLAM</h3>
     <p class="soar-live-stars" data-github-repo="HKUST-Aerial-Robotics/D2SLAM" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>面向无人机集群的去中心化、分布式协同视觉惯性 SLAM 系统，强调近场相对状态估计和全局一致性。</p>
@@ -72,6 +76,7 @@ translation_url: /open-source/
 
   <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2023 · Best Paper</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/racer.jpg' | relative_url }}" alt="RACER exploration preview">
     <h3>RACER</h3>
     <p class="soar-live-stars" data-github-repo="SYSU-STAR/RACER" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>去中心化多无人机快速协同探索系统，获 IEEE TRO King-Sun Fu Memorial Best Paper Award。</p>
@@ -83,6 +88,7 @@ translation_url: /open-source/
 
   <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2022</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/omni-swarm.jpg' | relative_url }}" alt="Omni-Swarm system preview">
     <h3>Omni-Swarm</h3>
     <p class="soar-live-stars" data-github-repo="HKUST-Aerial-Robotics/Omni-swarm" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>面向无人机集群的全向视觉惯性 UWB 状态估计系统，支撑厘米级相对状态估计和集群一致性。</p>
@@ -94,6 +100,7 @@ translation_url: /open-source/
 
   <article class="soar-open-card">
     <p class="soar-open-card__tag">SLAM Software</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/vins-fisheye.jpg' | relative_url }}" alt="VINS-Fisheye point cloud preview">
     <h3>VINS-Fisheye</h3>
     <p class="soar-live-stars" data-github-repo="xuhao1/VINS-Fisheye" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>VINS-Fusion 的鱼眼版本，支持 GPU/VisionWorks 加速，是 Omni-Swarm 系统的一部分，也可独立用于机器人定位。</p>

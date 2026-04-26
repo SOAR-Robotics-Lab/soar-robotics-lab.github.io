@@ -104,6 +104,7 @@
           kicker: "SOAR Research Gauntlet",
           intro: "驾驶 SOAR 小机器人，把研究难题、论文审稿、代码 bug、毕业压力和终极 publish-or-perish 城堡逐个击破。",
           controls: "操作：WASD / 方向键移动，空格发射，P 暂停，Esc 退出。鼠标或触控也可以拖动机器人。",
+          mobileControls: "手机端：点击开始后允许动作传感器，即可倾斜手机控制飞行方向。",
           start: "开始闯关",
           restart: "再来一局",
           close: "退出",
@@ -112,6 +113,9 @@
           score: "Score",
           lives: "Lives",
           wave: "Wave",
+          tilt: "Tilt",
+          tiltReady: "陀螺仪已启用",
+          tiltDenied: "未启用陀螺仪，可用触控拖动",
           gameOver: "科研暂时卡住了",
           win: "通关：今天也推进了飞行通用智能",
         }
@@ -121,6 +125,7 @@
           intro:
             "Pilot the SOAR robot through research problems, paper reviews, code bugs, graduation pressure, and the final publish-or-perish citadel.",
           controls: "Controls: WASD / arrow keys to move, Space to fire, P to pause, Esc to quit. Mouse or touch drag also works.",
+          mobileControls: "Mobile: after tapping Start, allow motion sensors and tilt your phone to steer.",
           start: "Start Mission",
           restart: "Restart",
           close: "Exit",
@@ -129,6 +134,9 @@
           score: "Score",
           lives: "Lives",
           wave: "Wave",
+          tilt: "Tilt",
+          tiltReady: "tilt control on",
+          tiltDenied: "tilt unavailable; drag to steer",
           gameOver: "Research blocked, for now",
           win: "Cleared: flying general intelligence advanced",
         };
@@ -217,6 +225,13 @@
       pointerActive: false,
       pointerX: 195,
       pointerY: 530,
+      motionEnabled: false,
+      motionSeen: false,
+      motionBaseBeta: null,
+      motionBaseGamma: null,
+      motionX: 0,
+      motionY: 0,
+      motionStatus: "",
       player: { x: 195, y: 530, size: 46 },
       bullets: [],
       enemies: [],
@@ -234,6 +249,11 @@
       state.finalShown = false;
       state.fireCooldown = 0;
       state.pointerActive = false;
+      state.motionSeen = false;
+      state.motionBaseBeta = null;
+      state.motionBaseGamma = null;
+      state.motionX = 0;
+      state.motionY = 0;
       state.player = { x: 195, y: 530, size: 46 };
       state.bullets = [];
       state.enemies = [];
@@ -276,6 +296,7 @@
               <h3>${text.title}</h3>
               <p>${text.intro}</p>
               <p>${text.controls}</p>
+              <p>${text.mobileControls}</p>
               <button class="btn btn-primary soar-game__start" type="button">${text.start}</button>
             </div>
             <div class="soar-game__message" aria-live="polite">
@@ -344,7 +365,8 @@
       setMascotGameMode(true);
       hud.innerHTML = isZh ? "正在装载科研难题图标..." : "Loading research obstacle sprites...";
       starting = true;
-      spriteReady.finally(beginGame);
+      const motionReady = window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0 ? enableMotionControl() : Promise.resolve();
+      Promise.all([spriteReady, motionReady]).finally(beginGame);
     };
 
     const beginGame = () => {
@@ -358,10 +380,46 @@
       canvas.focus({ preventScroll: true });
     };
 
+    const handleDeviceOrientation = (event) => {
+      if (event.beta == null || event.gamma == null) return;
+      if (state.motionBaseBeta == null || state.motionBaseGamma == null) {
+        state.motionBaseBeta = event.beta;
+        state.motionBaseGamma = event.gamma;
+      }
+      state.motionSeen = true;
+      state.motionX = Math.max(-1, Math.min(1, (event.gamma - state.motionBaseGamma) / 18));
+      state.motionY = Math.max(-1, Math.min(1, (event.beta - state.motionBaseBeta) / 18));
+    };
+
+    const enableMotionControl = async () => {
+      if (!("DeviceOrientationEvent" in window)) {
+        state.motionStatus = text.tiltDenied;
+        return;
+      }
+
+      try {
+        if (typeof window.DeviceOrientationEvent.requestPermission === "function") {
+          const permission = await window.DeviceOrientationEvent.requestPermission();
+          if (permission !== "granted") {
+            state.motionStatus = text.tiltDenied;
+            return;
+          }
+        }
+        window.addEventListener("deviceorientation", handleDeviceOrientation, true);
+        state.motionEnabled = true;
+        state.motionStatus = text.tiltReady;
+      } catch (_error) {
+        state.motionStatus = text.tiltDenied;
+      }
+    };
+
     function closeGame() {
       if (!overlay) return;
       state.mode = "idle";
       cancelAnimationFrame(animationFrame);
+      window.removeEventListener("deviceorientation", handleDeviceOrientation, true);
+      state.motionEnabled = false;
+      state.motionStatus = "";
       overlay.classList.remove("soar-game--active", "soar-game--intro", "soar-game--ended");
       document.body.classList.remove("soar-game-active");
       setMascotGameMode(false);
@@ -390,7 +448,8 @@
 
     const updateHud = () => {
       if (!hud) return;
-      hud.textContent = `${text.score}: ${state.score} · ${text.lives}: ${state.lives} · ${text.wave}: ${state.wave}`;
+      const motion = state.motionStatus ? ` · ${text.tilt}: ${state.motionStatus}` : "";
+      hud.textContent = `${text.score}: ${state.score} · ${text.lives}: ${state.lives} · ${text.wave}: ${state.wave}${motion}`;
     };
 
     const renderIntroHud = () => {
@@ -508,6 +567,9 @@
       if (state.pointerActive) {
         state.player.x += (state.pointerX - state.player.x) * Math.min(1, delta * 8);
         state.player.y += (state.pointerY - state.player.y) * Math.min(1, delta * 8);
+      } else if (state.motionEnabled && state.motionSeen) {
+        state.player.x += state.motionX * speed * 1.25 * delta;
+        state.player.y += state.motionY * speed * delta;
       } else {
         state.player.x += dx * speed * delta;
         state.player.y += dy * speed * delta;
