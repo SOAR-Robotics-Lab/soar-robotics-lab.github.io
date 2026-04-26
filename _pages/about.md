@@ -22,7 +22,7 @@ latest_posts:
 <div class="soar-hero">
   <div class="soar-hero__copy">
     <p class="soar-eyebrow">SOARLAB · 南京大学智能科学与技术学院</p>
-    <h2>面向具身智能、机器人 Agent 与飞行通用智能的研究型课题组</h2>
+    <h2>飞行机器人、具身智能与真实系统</h2>
     <p>
       SOARLAB 由徐浩老师独立指导，即将在南京大学智能科学与技术学院开展工作。课题组围绕无人机、人形机器人和飞行人形机器人三个硬件平台，研究 Robotics Agent、WAM/VLA 驱动的机器人基础模型、分布式感知、SLAM 与强化学习等核心方向。
     </p>

@@ -20,7 +20,7 @@ latest_posts:
 <div class="soar-hero">
   <div class="soar-hero__copy">
     <p class="soar-eyebrow">SOARLAB · School of Intelligent Science and Technology, Nanjing University</p>
-    <h2>A research group for embodied intelligence, robotics agents, and flying general intelligence</h2>
+    <h2>Flying Robots, Embodied Agents, Real Systems</h2>
     <p>
       SOARLAB is led by Hao Xu at the School of Intelligent Science and Technology, Nanjing University. We build embodied and collaborative intelligence for aerial robots, humanoids, and emerging flying humanoid platforms, with a focus on robotics agents, world/action models, VLA-style robot foundation models, distributed perception, SLAM, and reinforcement learning.
     </p>

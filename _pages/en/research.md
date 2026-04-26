@@ -9,8 +9,6 @@ lang: en
 translation_url: /zh/research/
 ---
 
-# Research
-
 SOARLAB aims to build flying general intelligence that can be validated on real robotic platforms. We treat embodied intelligence as a full-stack problem that connects perception, state estimation, control, planning, world models, behavior decision-making, data loops, and hardware experiments.
 
 ## Two Core Lines

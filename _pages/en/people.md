@@ -9,8 +9,6 @@ lang: en
 translation_url: /zh/people/
 ---
 
-# People
-
 ## Hao Xu
 
 <div class="row align-items-start">

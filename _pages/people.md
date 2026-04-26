@@ -9,8 +9,6 @@ lang: zh
 translation_url: /people/
 ---
 
-# 团队成员
-
 ## 徐浩
 
 <div class="row align-items-start">
