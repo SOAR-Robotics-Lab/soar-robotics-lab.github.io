@@ -41,6 +41,14 @@ latest_posts:
         <a href="https://www.xuhao1.me/" rel="external nofollow noopener" target="_blank">Personal Homepage</a>
       </div>
     </div>
+    <div class="soar-hero__institution">
+      <img src="{{ '/assets/img/nju-emblem-256.png' | relative_url }}" alt="Nanjing University emblem">
+      <div>
+        <span>Institutional Home</span>
+        <strong>Nanjing University</strong>
+        <small>School of Intelligent Science and Technology</small>
+      </div>
+    </div>
   </div>
 </div>
 

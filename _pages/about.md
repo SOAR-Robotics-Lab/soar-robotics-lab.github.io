@@ -43,6 +43,14 @@ latest_posts:
         <a href="https://www.xuhao1.me/" rel="external nofollow noopener" target="_blank">个人主页</a>
       </div>
     </div>
+    <div class="soar-hero__institution">
+      <img src="{{ '/assets/img/nju-emblem-256.png' | relative_url }}" alt="南京大学校徽">
+      <div>
+        <span>依托单位</span>
+        <strong>南京大学</strong>
+        <small>智能科学与技术学院</small>
+      </div>
+    </div>
   </div>
 </div>
 
