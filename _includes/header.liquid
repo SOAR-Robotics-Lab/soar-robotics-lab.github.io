@@ -36,6 +36,17 @@
         <!-- Social Icons -->
         <div class="navbar-brand social">{% social_links %}</div>
       {% endif %}
+      {% if page.permalink == home_permalink %}
+        <a class="navbar-brand title font-weight-lighter soar-mobile-home-brand d-sm-none" href="{{ home_permalink | relative_url }}">
+          {{- site.title -}}
+        </a>
+      {% endif %}
+      {% if site.languages.size >= 2 %}
+        <a class="nav-link soar-mobile-lang-switch d-sm-none" href="{{ lang_switch_url | relative_url }}" aria-label="Switch language">
+          <i class="fa-solid fa-language" aria-hidden="true"></i>
+          <span>{{ lang_switch_label }}</span>
+        </a>
+      {% endif %}
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -135,7 +146,7 @@
             </li>
           {% endif %}
           {% if site.languages.size >= 2 %}
-            <li class="nav-item">
+            <li class="nav-item d-none d-sm-block">
               <a class="nav-link" href="{{ lang_switch_url | relative_url }}">{{ lang_switch_label }}</a>
             </li>
           {% endif %}
