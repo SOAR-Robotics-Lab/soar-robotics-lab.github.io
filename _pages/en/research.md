@@ -48,7 +48,7 @@ The lab builds on prior work in spatial intelligence for aerial and legged robot
 
 ### Aerial Swarms
 
-We study aerial swarm state estimation, collaborative exploration, and autonomous operation in GNSS-denied environments. Representative systems include Omni-Swarm, D2SLAM, and RACER.
+We study aerial swarm state estimation, collaborative exploration, and autonomous operation in GNSS-denied environments. Representative systems include Omni-Swarm, D<sup>2</sup>SLAM, and RACER.
 
 ### Embodied and Collaborative Intelligence
 
@@ -56,4 +56,4 @@ Future work focuses on embodied and collaborative intelligence, including reinfo
 
 ## Open Systems
 
-Released or contributed systems include D2SLAM, Omni-Swarm, VINS-Fisheye, and FoxTracker. The next stage will keep the standard that algorithms should run on real robots.
+Released or contributed systems include D<sup>2</sup>SLAM, Omni-Swarm, VINS-Fisheye, and FoxTracker. The next stage will keep the standard that algorithms should run on real robots.

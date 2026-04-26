@@ -48,7 +48,7 @@ SOARLAB 的目标是建设能够在真实机器人平台上验证的飞行通用
 
 ### 无人机集群
 
-我们关注无 GPS 环境下的无人机集群状态估计、协同探索和自主运行。代表工作包括 Omni-Swarm、D2SLAM 和 RACER 等系统。
+我们关注无 GPS 环境下的无人机集群状态估计、协同探索和自主运行。代表工作包括 Omni-Swarm、D<sup>2</sup>SLAM 和 RACER 等系统。
 
 ### 具身智能与协同智能
 
@@ -56,4 +56,4 @@ SOARLAB 的目标是建设能够在真实机器人平台上验证的飞行通用
 
 ## 开源与系统
 
-已发布或参与发布的系统包括 D2SLAM、Omni-Swarm、VINS-Fisheye、FoxTracker 等。新一阶段课题组将继续坚持“算法必须能上真实机器人”的标准。
+已发布或参与发布的系统包括 D<sup>2</sup>SLAM、Omni-Swarm、VINS-Fisheye、FoxTracker 等。新一阶段课题组将继续坚持“算法必须能上真实机器人”的标准。

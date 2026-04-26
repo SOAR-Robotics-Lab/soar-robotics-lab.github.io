@@ -79,4 +79,4 @@ Hao Xu received his Ph.D. from the Department of Electronic and Computer Enginee
 
 ## Representative Work
 
-Dr. Xu has published in major robotics journals and conferences including IEEE TRO, IEEE RAL, ICRA, and IROS, and serves as a reviewer for these venues. The collaborative work **RACER** received the IEEE Transactions on Robotics King-Sun Fu Memorial Best Paper Award, the first time this award went to a team from China. His released systems include D2SLAM, Omni-Swarm, VINS-Fisheye, and FoxTracker.
+Dr. Xu has published in major robotics journals and conferences including IEEE TRO, IEEE RAL, ICRA, and IROS, and serves as a reviewer for these venues. The collaborative work **RACER** received the IEEE Transactions on Robotics King-Sun Fu Memorial Best Paper Award, the first time this award went to a team from China. His released systems include D<sup>2</sup>SLAM, Omni-Swarm, VINS-Fisheye, and FoxTracker.

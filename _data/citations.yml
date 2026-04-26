@@ -1,1 +1,55 @@
-papers: {}
+metadata:
+  last_updated: '2026-04-27'
+papers:
+  XF_6HvcAAAAJ:9yKSN-GCB0IC:
+    citations: 14
+    title: Control of a tail-sitter VTOL UAV based on recurrent neural networks
+    year: '2021'
+  XF_6HvcAAAAJ:IjCSPb-OGe4C:
+    citations: 206
+    title: "Omni-swarm: A decentralized omnidirectional visual\u2013inertial\u2013uwb state estimation system for aerial swarms"
+    year: '2022'
+  XF_6HvcAAAAJ:Tyk-4Ss8FVUC:
+    citations: 264
+    title: 'Racer: Rapid collaborative exploration with a decentralized multi-uav system'
+    year: '2023'
+  XF_6HvcAAAAJ:UeHWp8X0CEIC:
+    citations: 20
+    title: 'Neither fast nor slow: How to fly through narrow tunnels'
+    year: '2022'
+  XF_6HvcAAAAJ:W7OEmFMy1HYC:
+    citations: 23
+    title: 'Omninxt: A fully open-source and compact aerial robot with omnidirectional visual perception'
+    year: '2024'
+  XF_6HvcAAAAJ:WF5omc3nYNoC:
+    citations: 0
+    title: 'TCGM: Spatio-Temporal Clues for Multi-Object Tracking via Topological Chronology Graph Neural Network'
+    year: '2025'
+  XF_6HvcAAAAJ:Y0pCki6q_DkC:
+    citations: 100
+    title: ' SLAM: Decentralized and Distributed Collaborative Visual-inertial SLAM System for Aerial Swarm'
+    year: '2024'
+  XF_6HvcAAAAJ:YsMSGLbcyi4C:
+    citations: 4
+    title: Autonomous flights inside narrow tunnels
+    year: '2025'
+  XF_6HvcAAAAJ:_FxGoFyzp5QC:
+    citations: 2
+    title: 'INHerit-SG: Incremental Hierarchical Semantic Scene Graphs with RAG-Style Retrieval'
+    year: '2026'
+  XF_6HvcAAAAJ:eQOLeE2rZwMC:
+    citations: 0
+    title: 'IMH-MOT: Interactive Multi-Hierarchical Image and Point Cloud Fusion for Multi-Object Tracking'
+    year: '2025'
+  XF_6HvcAAAAJ:u-x6o8ySG0sC:
+    citations: 191
+    title: Decentralized Visual-Inertial-UWB Fusion for Relative State Estimation of Aerial Swarm
+    year: '2020'
+  XF_6HvcAAAAJ:ufrVoPGSRksC:
+    citations: 0
+    title: 'SS-VIO: A Novel Cross Modal State Space Visual Inertial Odometry'
+    year: '2025'
+  XF_6HvcAAAAJ:zYLM7Y9cAGgC:
+    citations: 5
+    title: 'BDPGO: Balanced distributed pose graph optimization framework for swarm robotics'
+    year: '2021'

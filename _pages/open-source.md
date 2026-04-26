@@ -65,7 +65,7 @@ translation_url: /open-source/
   <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2024</p>
     <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/d2slam.jpg' | relative_url }}" alt="D2SLAM system preview">
-    <h3>D2SLAM</h3>
+    <h3>D<sup>2</sup>SLAM</h3>
     <p class="soar-live-stars" data-github-repo="HKUST-Aerial-Robotics/D2SLAM" data-star-label="stars" data-star-fallback="★ stars unavailable">Loading stars...</p>
     <p>面向无人机集群的去中心化、分布式协同视觉惯性 SLAM 系统，强调近场相对状态估计和全局一致性。</p>
     <div class="soar-open-card__links">

@@ -81,4 +81,4 @@ latest_posts:
 
 ## 代表工作
 
-徐浩老师在 IEEE TRO、IEEE RAL、ICRA、IROS 等机器人领域顶刊顶会发表多篇论文并担任审稿人；合作论文 **RACER** 获 IEEE Transactions on Robotics King-Sun Fu Memorial Best Paper Award，为该奖项首次授予中国团队。开源与系统积累包括 D2SLAM、Omni-Swarm、VINS-Fisheye、FoxTracker 等。
+徐浩老师在 IEEE TRO、IEEE RAL、ICRA、IROS 等机器人领域顶刊顶会发表多篇论文并担任审稿人；合作论文 **RACER** 获 IEEE Transactions on Robotics King-Sun Fu Memorial Best Paper Award，为该奖项首次授予中国团队。开源与系统积累包括 D<sup>2</sup>SLAM、Omni-Swarm、VINS-Fisheye、FoxTracker 等。

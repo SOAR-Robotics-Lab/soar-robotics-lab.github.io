@@ -201,12 +201,28 @@
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
       {% if entry.google_scholar_id and site.data.socials.scholar_userid %}
+        {% assign citation_count = '' %}
+        {% assign scholar_id_key = site.data.socials.scholar_userid | append: ':' | append: entry.google_scholar_id %}
+        {% assign publication_key = entry.google_scholar_id %}
+        {% if site.data.citations.papers[scholar_id_key] %}
+          {% assign citation_count = site.data.citations.papers[scholar_id_key].citations %}
+        {% elsif site.data.citations.papers[publication_key] %}
+          {% assign citation_count = site.data.citations.papers[publication_key].citations %}
+        {% else %}
+          {% for paper in site.data.citations.papers %}
+            {% assign paper_key = paper[0] %}
+            {% if paper_key contains entry.google_scholar_id %}
+              {% assign citation_count = paper[1].citations %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
         <a
           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user={{ site.data.socials.scholar_userid }}&citation_for_view={{ site.data.socials.scholar_userid }}:{{ entry.google_scholar_id }}"
           class="btn btn-sm z-depth-0 scholar-citations"
           role="button"
         >
-          Cited by {% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}
+          Cited by {% if citation_count != '' %}{{ citation_count }}{% else %}N/A{% endif %}
         </a>
       {% endif %}
       {% if entry.arxiv %}
@@ -331,8 +347,8 @@
               aria-label="Google Scholar link"
               role="button"
             >
-              {% assign citation_count = 0 %}
-              {% assign scholar_id_key = site.scholar_userid | append: ':' | append: entry.google_scholar_id %}
+              {% assign citation_count = '' %}
+              {% assign scholar_id_key = site.data.socials.scholar_userid | append: ':' | append: entry.google_scholar_id %}
               {% assign publication_key = entry.google_scholar_id %}
 
               {% if site.data.citations.papers[scholar_id_key] %}
@@ -347,6 +363,9 @@
                     {% break %}
                   {% endif %}
                 {% endfor %}
+              {% endif %}
+              {% if citation_count == '' %}
+                {% assign citation_count = 'NA' %}
               {% endif %}
 
               <img

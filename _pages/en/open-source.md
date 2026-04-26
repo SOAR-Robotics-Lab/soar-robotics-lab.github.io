@@ -65,7 +65,7 @@ translation_url: /zh/open-source/
   <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2024</p>
     <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/d2slam.jpg' | relative_url }}" alt="D2SLAM system preview">
-    <h3>D2SLAM</h3>
+    <h3>D<sup>2</sup>SLAM</h3>
     <p class="soar-live-stars" data-github-repo="HKUST-Aerial-Robotics/D2SLAM" data-star-label="stars" data-star-fallback="★ stars unavailable">Stars loading...</p>
     <p>A decentralized and distributed collaborative visual-inertial SLAM system for aerial swarms, covering near-field relative estimation and globally consistent trajectories.</p>
     <div class="soar-open-card__links">
