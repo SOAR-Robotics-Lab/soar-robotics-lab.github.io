@@ -13,9 +13,16 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Nanjing University, studies embodied intelligence, robotics agents, aerial swarms, SLAM, WAM/VLA, and robot foundation models.
 footer_text: >
   SOARLAB · School of Intelligent Science and Technology, Nanjing University.
+footer_text_zh: >
+  SOARLAB · 南京大学智能科学与技术学院
+footer_text_en: >
+  SOARLAB · School of Intelligent Science and Technology, Nanjing University.
 keywords: embodied intelligence, robotics, aerial swarm, SLAM, WAM, VLA, robot foundation model, AI agent, 南京大学, 智能科学与技术学院, 飞行通用智能课题组
 lang: zh-CN # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🛸 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+
+languages: ["zh", "en"]
+default_lang: "zh"
 
 url: https://xuhao1.me # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root

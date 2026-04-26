@@ -259,3 +259,8 @@ ul.task-list input[type="checkbox"] {
 .d2h-diff-table {
   position: relative;
 }
+// SOARLAB homepage hero card.
+.soar-hero {
+  background: linear-gradient(135deg, rgba(27, 96, 96, 0.12), rgba(222, 154, 63, 0.12));
+  border: 1px solid var(--global-divider-color);
+}

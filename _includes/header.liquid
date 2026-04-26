@@ -1,9 +1,21 @@
 <header>
+  {% assign current_lang = page.lang | default: site.default_lang | default: 'zh' %}
+  {% if current_lang == 'en' %}
+    {% assign home_permalink = '/en/' %}
+    {% assign home_title = 'home' %}
+    {% assign lang_switch_label = '中文' %}
+    {% assign lang_switch_url = page.translation_url | default: '/' %}
+  {% else %}
+    {% assign home_permalink = '/' %}
+    {% assign home_title = '首页' %}
+    {% assign lang_switch_label = 'EN' %}
+    {% assign lang_switch_url = page.translation_url | default: '/en/' %}
+  {% endif %}
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+      {% if page.permalink != home_permalink %}
+        <a class="navbar-brand title font-weight-lighter" href="{{ home_permalink | relative_url }}">
           {% if site.title == 'blank' %}
             {% if site.first_name %}
               <span class="font-weight-bold">
@@ -42,15 +54,11 @@
 
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          {% for page in site.pages %}
-            {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
-          {% endfor %}
-
           <!-- About -->
-          <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-            <a class="nav-link" href="{{ '/' | relative_url }}">
-              {{- about_title }}
-              {% if page.permalink == '/' %}
+          <li class="nav-item {% if page.permalink == home_permalink %}active{% endif %}">
+            <a class="nav-link" href="{{ home_permalink | relative_url }}">
+              {{- home_title }}
+              {% if page.permalink == home_permalink %}
                 <span class="sr-only">(current)</span>
               {% endif %}
             </a>
@@ -59,7 +67,8 @@
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
-            {% if p.nav and p.autogen == null %}
+            {% assign p_lang = p.lang | default: site.default_lang | default: 'zh' %}
+            {% if p.nav and p.autogen == null and p_lang == current_lang %}
               {% if p.dropdown %}
                 {% assign has_active_child = false %}
                 {% for child in p.children %}
@@ -123,6 +132,11 @@
               <button id="search-toggle" title="Search" onclick="openSearchModal()">
                 <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
               </button>
+            </li>
+          {% endif %}
+          {% if site.languages.size >= 2 %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ lang_switch_url | relative_url }}">{{ lang_switch_label }}</a>
             </li>
           {% endif %}
           {% if site.enable_darkmode %}

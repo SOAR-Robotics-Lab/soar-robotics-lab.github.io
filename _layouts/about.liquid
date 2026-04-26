@@ -1,6 +1,20 @@
 ---
 layout: default
 ---
+{% assign current_lang = page.lang | default: site.default_lang | default: 'zh' %}
+{% if current_lang == 'en' %}
+  {% assign news_title = 'news' %}
+  {% assign news_url = '/en/news/' %}
+  {% assign selected_papers_title = 'selected publications' %}
+  {% assign selected_papers_url = '/en/publications/' %}
+  {% assign contact_note = 'Prospective students should include a CV, WeChat ID, and a concise research statement in the application email.' %}
+{% else %}
+  {% assign news_title = '新闻' %}
+  {% assign news_url = '/news/' %}
+  {% assign selected_papers_title = '代表论文' %}
+  {% assign selected_papers_url = '/publications/' %}
+  {% assign contact_note = '申请同学请在邮件中附上简历、微信号和简要研究设想。' %}
+{% endif %}
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">
@@ -43,7 +57,7 @@ layout: default
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+        <a href="{{ news_url | relative_url }}" style="color: inherit">{{ news_title }}</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -59,7 +73,7 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+        <a href="{{ selected_papers_url | relative_url }}" style="color: inherit">{{ selected_papers_title }}</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
@@ -69,7 +83,7 @@ layout: default
       <div class="social">
         <div class="contact-icons">{% social_links %}</div>
 
-        <div class="contact-note">{{ site.contact_note }}</div>
+        <div class="contact-note">{{ contact_note }}</div>
       </div>
     {% endif %}
 

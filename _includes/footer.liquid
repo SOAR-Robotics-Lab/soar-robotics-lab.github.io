@@ -1,13 +1,21 @@
 {% capture footer_contents %}
+  {% assign current_lang = page.lang | default: site.default_lang | default: 'zh' %}
+  {% if current_lang == 'en' %}
+    {% assign footer_text = site.footer_text_en | default: site.footer_text %}
+    {% assign last_updated_label = 'Last updated' %}
+  {% else %}
+    {% assign footer_text = site.footer_text_zh | default: site.footer_text %}
+    {% assign last_updated_label = '最后更新' %}
+  {% endif %}
   &copy; Copyright {{ site.time | date: '%Y' }}
   {{ site.first_name }}
   {{ site.middle_name }}
-  {{ site.last_name }}. {{ site.footer_text }}
+  {{ site.last_name }}. {{ footer_text }}
   {% if site.impressum_path %}
     <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
   {% endif %}
   {% if site.last_updated %}
-    Last updated: {{ 'now' | date: '%B %d, %Y' }}.
+    {{ last_updated_label }}: {{ 'now' | date: '%B %d, %Y' }}.
   {% endif %}
 {% endcapture %}
 
