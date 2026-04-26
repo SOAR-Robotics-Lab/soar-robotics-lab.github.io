@@ -1,12 +1,12 @@
 ---
 layout: page
 title: 研究
-permalink: /research/
+permalink: /zh/research/
 description: SOARLAB 研究方向与平台。
 nav: true
 nav_order: 2
 lang: zh
-translation_url: /en/research/
+translation_url: /research/
 ---
 
 # 研究方向

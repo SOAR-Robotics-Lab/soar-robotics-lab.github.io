@@ -1,12 +1,12 @@
 ---
 layout: page
-permalink: /publications/
+permalink: /zh/publications/
 title: 论文
 description: 徐浩老师与合作者的代表论文。
 nav: true
 nav_order: 3
 lang: zh
-translation_url: /en/publications/
+translation_url: /publications/
 ---
 
 # 代表论文

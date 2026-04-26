@@ -1,15 +1,15 @@
 <header>
   {% assign current_lang = page.lang | default: site.default_lang | default: 'zh' %}
   {% if current_lang == 'en' %}
-    {% assign home_permalink = '/en/' %}
+    {% assign home_permalink = '/' %}
     {% assign home_title = 'home' %}
     {% assign lang_switch_label = '中文' %}
-    {% assign lang_switch_url = page.translation_url | default: '/' %}
+    {% assign lang_switch_url = page.translation_url | default: '/zh/' %}
   {% else %}
-    {% assign home_permalink = '/' %}
+    {% assign home_permalink = '/zh/' %}
     {% assign home_title = '首页' %}
     {% assign lang_switch_label = 'EN' %}
-    {% assign lang_switch_url = page.translation_url | default: '/en/' %}
+    {% assign lang_switch_url = page.translation_url | default: '/' %}
   {% endif %}
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">

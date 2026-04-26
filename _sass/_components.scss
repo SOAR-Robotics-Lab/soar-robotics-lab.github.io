@@ -354,26 +354,41 @@ ul.task-list input[type="checkbox"] {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
 }
 
-.soar-hero__photo {
+.soar-hero__logo {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
 }
 
-.soar-hero__meta {
+.soar-hero__pi {
   display: grid;
-  gap: 0.3rem;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: center;
   padding: 1rem 1.1rem 1.15rem;
-  font-size: 1rem;
+  font-size: 0.93rem;
   line-height: 1.45;
 
+  img {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 999px;
+  }
+
   strong {
-    font-size: 1.2rem;
+    display: block;
+    font-size: 1.05rem;
   }
 
   span {
     display: block;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 0.2rem;
   }
 }
 
@@ -530,6 +545,23 @@ html[data-theme="dark"] .soar-hero__profile {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.soar-live-stars {
+  width: fit-content;
+  margin: -0.2rem 0 0.65rem;
+  padding: 0.12rem 0.55rem;
+  color: #0f2946;
+  background: rgba(255, 178, 72, 0.22);
+  border: 1px solid rgba(255, 144, 48, 0.32);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .soar-live-stars {
+  color: #ffd48a;
+  background: rgba(255, 178, 72, 0.12);
 }
 
 .soar-open-card__links {

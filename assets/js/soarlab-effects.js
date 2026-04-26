@@ -70,11 +70,34 @@
     );
   };
 
+  const setupGitHubStars = () => {
+    document.querySelectorAll("[data-github-repo]").forEach(async (element) => {
+      const repo = element.dataset.githubRepo;
+      if (!repo) return;
+
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repo}`, {
+          headers: { Accept: "application/vnd.github+json" },
+        });
+        if (!response.ok) throw new Error(`GitHub API ${response.status}`);
+
+        const data = await response.json();
+        const stars = new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(data.stargazers_count || 0);
+        const label = element.dataset.starLabel || "stars";
+        element.textContent = `★ ${stars} ${label}`;
+        element.setAttribute("aria-label", `${data.stargazers_count || 0} GitHub stars`);
+      } catch (_error) {
+        element.textContent = element.dataset.starFallback || "★ stars unavailable";
+      }
+    });
+  };
+
   const boot = () => {
     createMascot();
     setupHeroTilt();
     setupCardGlow();
     setupCursorTrail();
+    setupGitHubStars();
   };
 
   if (document.readyState === "loading") {

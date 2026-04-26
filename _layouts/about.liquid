@@ -4,15 +4,15 @@ layout: default
 {% assign current_lang = page.lang | default: site.default_lang | default: 'zh' %}
 {% if current_lang == 'en' %}
   {% assign news_title = 'news' %}
-  {% assign news_url = '/en/news/' %}
+  {% assign news_url = '/news/' %}
   {% assign selected_papers_title = 'selected publications' %}
-  {% assign selected_papers_url = '/en/publications/' %}
+  {% assign selected_papers_url = '/publications/' %}
   {% assign contact_note = 'Prospective students should include a CV, WeChat ID, and a concise research statement in the application email.' %}
 {% else %}
   {% assign news_title = '新闻' %}
-  {% assign news_url = '/news/' %}
+  {% assign news_url = '/zh/news/' %}
   {% assign selected_papers_title = '代表论文' %}
-  {% assign selected_papers_url = '/publications/' %}
+  {% assign selected_papers_url = '/zh/publications/' %}
   {% assign contact_note = '申请同学请在邮件中附上简历、微信号和简要研究设想。' %}
 {% endif %}
 <div class="post">

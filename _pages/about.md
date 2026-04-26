@@ -1,9 +1,9 @@
 ---
 layout: about
 title: 首页
-permalink: /
+permalink: /zh/
 lang: zh
-translation_url: /en/
+translation_url: /
 subtitle: 飞行通用智能课题组
 description: SOARLAB（飞行通用智能课题组）由徐浩老师在南京大学智能科学与技术学院独立指导，研究具身智能、机器人 Agent、WAM/VLA、分布式感知、SLAM 与强化学习。
 
@@ -27,18 +27,21 @@ latest_posts:
       SOARLAB 由徐浩老师独立指导，即将在南京大学智能科学与技术学院开展工作。课题组围绕无人机、人形机器人和飞行人形机器人三个硬件平台，研究 Robotics Agent、WAM/VLA 驱动的机器人基础模型、分布式感知、SLAM 与强化学习等核心方向。
     </p>
     <div class="soar-hero__actions">
-      <a class="btn btn-primary" href="{{ '/recruiting/' | relative_url }}">2027 招生</a>
-      <a class="btn btn-outline-primary" href="{{ '/publications/' | relative_url }}">代表论文</a>
+      <a class="btn btn-primary" href="{{ '/zh/recruiting/' | relative_url }}">2027 招生</a>
+      <a class="btn btn-outline-primary" href="https://github.com/SOAR-Robotics-Lab" rel="external nofollow noopener" target="_blank">SOARLAB GitHub</a>
+      <a class="btn btn-outline-primary" href="{{ '/zh/publications/' | relative_url }}">代表论文</a>
       <a class="btn btn-outline-primary" href="https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=zh-TW" rel="external nofollow noopener" target="_blank">Google Scholar</a>
     </div>
   </div>
   <div class="soar-hero__profile">
-    <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="徐浩" class="soar-hero__photo">
-    <div class="soar-hero__meta">
-      <strong>徐浩</strong>
-      <span>准聘副教授</span>
-      <span>南京大学智能科学与技术学院</span>
-      <span>苏州校区 · 太湖畔</span>
+    <img src="{{ '/assets/img/soarlab-512.png' | relative_url }}" alt="SOARLAB 图标" class="soar-hero__logo">
+    <div class="soar-hero__pi">
+      <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="徐浩">
+      <div>
+        <strong>徐浩</strong>
+        <span>准聘副教授 · 南京大学智能科学与技术学院</span>
+        <a href="https://www.xuhao1.me/" rel="external nofollow noopener" target="_blank">个人主页</a>
+      </div>
     </div>
   </div>
 </div>
@@ -48,8 +51,8 @@ latest_posts:
 面向 2027 届相关专业同学，课题组招收对具身智能、机器人及核心算法感兴趣的直博生、普博生和硕士研究生。我们目前最急需在 **WAM/VLA** 与 **AI Agent** 方向推进，也欢迎对分布式感知、SLAM、强化学习等经典方向有扎实兴趣的同学。
 
 <p>
-  <a class="btn btn-primary" href="{{ '/recruiting/' | relative_url }}">查看招生信息</a>
-  <a class="btn btn-outline-primary" href="{{ '/research/' | relative_url }}">研究方向</a>
+  <a class="btn btn-primary" href="{{ '/zh/recruiting/' | relative_url }}">查看招生信息</a>
+  <a class="btn btn-outline-primary" href="{{ '/zh/research/' | relative_url }}">研究方向</a>
 </p>
 
 ## 导师简介

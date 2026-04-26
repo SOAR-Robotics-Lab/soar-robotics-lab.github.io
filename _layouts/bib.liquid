@@ -200,6 +200,19 @@
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
+      {% if entry.google_scholar_id and site.data.socials.scholar_userid %}
+        <a
+          href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user={{ site.data.socials.scholar_userid }}&citation_for_view={{ site.data.socials.scholar_userid }}:{{ entry.google_scholar_id }}"
+          class="btn btn-sm z-depth-0 scholar-citations"
+          role="button"
+        >
+          {% if page.lang == 'zh' -%}
+            引用 {% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}
+          {%- else -%}
+            Cited by {% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}
+          {%- endif %}
+        </a>
+      {% endif %}
       {% if entry.arxiv %}
         <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {% endif %}

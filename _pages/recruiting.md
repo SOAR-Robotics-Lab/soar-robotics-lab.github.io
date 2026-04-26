@@ -1,12 +1,12 @@
 ---
 layout: page
-permalink: /recruiting/
+permalink: /zh/recruiting/
 title: 招生
 description: SOARLAB 2027 届招生信息。
 nav: true
 nav_order: 1
 lang: zh
-translation_url: /en/recruiting/
+translation_url: /recruiting/
 ---
 
 # 招生信息

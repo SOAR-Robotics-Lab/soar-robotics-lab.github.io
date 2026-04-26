@@ -1,12 +1,12 @@
 ---
 layout: page
-permalink: /en/recruiting/
+permalink: /recruiting/
 title: recruiting
 description: 2027 admissions information for SOARLAB.
 nav: true
 nav_order: 1
 lang: en
-translation_url: /recruiting/
+translation_url: /zh/recruiting/
 ---
 
 # Recruiting

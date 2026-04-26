@@ -1,12 +1,12 @@
 ---
 layout: page
-permalink: /en/publications/
+permalink: /publications/
 title: publications
 description: Selected publications by Hao Xu and collaborators.
 nav: true
 nav_order: 3
 lang: en
-translation_url: /publications/
+translation_url: /zh/publications/
 ---
 
 # Selected Publications

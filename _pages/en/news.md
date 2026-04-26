@@ -1,11 +1,11 @@
 ---
 layout: page
 title: news
-permalink: /en/news/
+permalink: /news/
 nav: true
 nav_order: 6
 lang: en
-translation_url: /news/
+translation_url: /zh/news/
 ---
 
 # News

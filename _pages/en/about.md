@@ -1,9 +1,9 @@
 ---
 layout: about
 title: home
-permalink: /en/
+permalink: /
 lang: en
-translation_url: /
+translation_url: /zh/
 subtitle: Flying General Intelligence Lab
 description: SOARLAB, the Flying General Intelligence Lab led by Hao Xu at the School of Intelligent Science and Technology, Nanjing University, studies embodied intelligence, robotics agents, WAM/VLA, distributed perception, SLAM, and reinforcement learning.
 
@@ -25,18 +25,21 @@ latest_posts:
       SOARLAB is led by Hao Xu at the School of Intelligent Science and Technology, Nanjing University. We build embodied and collaborative intelligence for aerial robots, humanoids, and emerging flying humanoid platforms, with a focus on robotics agents, world/action models, VLA-style robot foundation models, distributed perception, SLAM, and reinforcement learning.
     </p>
     <div class="soar-hero__actions">
-      <a class="btn btn-primary" href="{{ '/en/recruiting/' | relative_url }}">2027 Admissions</a>
-      <a class="btn btn-outline-primary" href="{{ '/en/publications/' | relative_url }}">Publications</a>
+      <a class="btn btn-primary" href="{{ '/recruiting/' | relative_url }}">2027 Admissions</a>
+      <a class="btn btn-outline-primary" href="https://github.com/SOAR-Robotics-Lab" rel="external nofollow noopener" target="_blank">SOARLAB GitHub</a>
+      <a class="btn btn-outline-primary" href="{{ '/publications/' | relative_url }}">Publications</a>
       <a class="btn btn-outline-primary" href="https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=en" rel="external nofollow noopener" target="_blank">Google Scholar</a>
     </div>
   </div>
   <div class="soar-hero__profile">
-    <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="Hao Xu" class="soar-hero__photo">
-    <div class="soar-hero__meta">
-      <strong>Hao Xu</strong>
-      <span>Tenure-track Associate Professor</span>
-      <span>School of Intelligent Science and Technology</span>
-      <span>Nanjing University · Suzhou Campus</span>
+    <img src="{{ '/assets/img/soarlab-512.png' | relative_url }}" alt="SOARLAB logo" class="soar-hero__logo">
+    <div class="soar-hero__pi">
+      <img src="{{ '/assets/img/xuhao_profile.png' | relative_url }}" alt="Hao Xu">
+      <div>
+        <strong>Hao Xu</strong>
+        <span>Tenure-track Associate Professor · Nanjing University</span>
+        <a href="https://www.xuhao1.me/" rel="external nofollow noopener" target="_blank">Personal Homepage</a>
+      </div>
     </div>
   </div>
 </div>
@@ -46,8 +49,8 @@ latest_posts:
 We are recruiting direct Ph.D., regular Ph.D., and master's students from the 2027 cohort who are interested in embodied intelligence, robotics, and core algorithms. The most urgent directions are **WAM/VLA** and **AI agents**, while strong students in distributed perception, SLAM, and reinforcement learning are also welcome.
 
 <p>
-  <a class="btn btn-primary" href="{{ '/en/recruiting/' | relative_url }}">Recruiting</a>
-  <a class="btn btn-outline-primary" href="{{ '/en/research/' | relative_url }}">Research</a>
+  <a class="btn btn-primary" href="{{ '/recruiting/' | relative_url }}">Recruiting</a>
+  <a class="btn btn-outline-primary" href="{{ '/research/' | relative_url }}">Research</a>
 </p>
 
 ## Principal Investigator

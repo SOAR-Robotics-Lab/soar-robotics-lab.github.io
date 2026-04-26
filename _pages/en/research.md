@@ -1,12 +1,12 @@
 ---
 layout: page
 title: research
-permalink: /en/research/
+permalink: /research/
 description: Research directions and platforms of SOARLAB.
 nav: true
 nav_order: 2
 lang: en
-translation_url: /research/
+translation_url: /zh/research/
 ---
 
 # Research
