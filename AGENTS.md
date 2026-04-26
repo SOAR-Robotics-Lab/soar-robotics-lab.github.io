@@ -59,6 +59,10 @@ When modifying `_config.yml`, these **must be updated together**:
 - **Project site:** `url: https://username.github.io` + `baseurl: /repo-name/`
 - **YAML errors:** Quote strings with special characters: `title: "My: Cool Site"`
 
+## SOARLAB Content Rules
+
+- Publication citation buttons must prefer generated static values in `_data/citations.yml`, refreshed from Google Scholar when code is generated or before release. Do not rely solely on client-side or build-time live Google Scholar access, because it may show `N/A` from networks where Scholar is unavailable.
+
 ## Development Workflow
 
 - **Git & Commits:** For commit message format and Git practices, see [.github/GIT_WORKFLOW.md](.github/GIT_WORKFLOW.md).
