@@ -29,6 +29,7 @@ latest_posts:
       <a class="btn btn-outline-primary" href="https://github.com/SOAR-Robotics-Lab" rel="external nofollow noopener" target="_blank">SOARLAB GitHub</a>
       <a class="btn btn-outline-primary" href="{{ '/publications/' | relative_url }}">Publications</a>
       <a class="btn btn-outline-primary" href="https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=en" rel="external nofollow noopener" target="_blank">Google Scholar</a>
+      <button class="btn btn-outline-primary soar-share-button" type="button">Share QR</button>
     </div>
   </div>
   <div class="soar-hero__profile">

@@ -31,6 +31,7 @@ latest_posts:
       <a class="btn btn-outline-primary" href="https://github.com/SOAR-Robotics-Lab" rel="external nofollow noopener" target="_blank">SOARLAB GitHub</a>
       <a class="btn btn-outline-primary" href="{{ '/zh/publications/' | relative_url }}">代表论文</a>
       <a class="btn btn-outline-primary" href="https://scholar.google.com.hk/citations?user=XF_6HvcAAAAJ&hl=zh-TW" rel="external nofollow noopener" target="_blank">Google Scholar</a>
+      <button class="btn btn-outline-primary soar-share-button" type="button">二维码分享</button>
     </div>
   </div>
   <div class="soar-hero__profile">

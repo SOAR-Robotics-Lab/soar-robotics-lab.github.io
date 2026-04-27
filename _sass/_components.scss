@@ -453,6 +453,145 @@ html[data-theme="dark"] .soar-hero__institution {
   background: linear-gradient(135deg, rgba(151, 92, 151, 0.16), rgba(255, 255, 255, 0.05));
 }
 
+body.soar-qr-share-active {
+  overflow: hidden;
+}
+
+.soar-qr-share {
+  position: fixed;
+  inset: 0;
+  z-index: 2080;
+  display: none;
+  place-items: center;
+  padding: 1rem;
+}
+
+.soar-qr-share--active {
+  display: grid;
+}
+
+.soar-qr-share__backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 22%, rgba(42, 196, 207, 0.2), transparent 34%), rgba(5, 13, 22, 0.58);
+  backdrop-filter: blur(8px);
+}
+
+.soar-qr-share__card {
+  position: relative;
+  width: min(25rem, calc(100vw - 2rem));
+  padding: 1.15rem;
+  color: #071421;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 252, 0.94)),
+    radial-gradient(circle at 15% 0%, rgba(42, 196, 207, 0.18), transparent 34%);
+  border: 1px solid rgba(42, 196, 207, 0.28);
+  border-radius: 1.25rem;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+
+  h2 {
+    margin: 0 0 0.45rem;
+    color: #071421;
+    font-size: clamp(1.35rem, 4vw, 1.85rem);
+  }
+
+  p {
+    margin: 0 auto 0.9rem;
+    color: rgba(7, 20, 33, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  code {
+    display: block;
+    max-width: 100%;
+    padding: 0.48rem 0.62rem;
+    overflow: hidden;
+    color: #1b5f60;
+    background: rgba(42, 196, 207, 0.1);
+    border-radius: 999px;
+    text-overflow: ellipsis;
+  }
+}
+
+.soar-qr-share__kicker {
+  margin-bottom: 0.35rem !important;
+  color: #168b98 !important;
+  font-size: 0.75rem !important;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.soar-qr-share__close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: rgba(7, 20, 33, 0.72);
+  background: rgba(7, 20, 33, 0.06);
+  border: 0;
+  border-radius: 999px;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.soar-qr-share__image {
+  width: min(17.5rem, 78vw);
+  margin: 0 auto 0.95rem;
+  padding: 0.75rem;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #64dae4, #ffb15e) border-box;
+  border: 1px solid transparent;
+  border-radius: 1.1rem;
+  box-shadow: 0 14px 38px rgba(7, 20, 33, 0.16);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.55rem;
+  }
+}
+
+.soar-qr-share__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.95rem;
+
+  .btn {
+    margin: 0;
+    border-radius: 999px;
+    text-transform: none;
+  }
+}
+
+html[data-theme="dark"] .soar-qr-share__card {
+  color: #f4fbff;
+  background:
+    linear-gradient(180deg, rgba(14, 24, 32, 0.96), rgba(10, 19, 27, 0.94)),
+    radial-gradient(circle at 15% 0%, rgba(42, 196, 207, 0.18), transparent 34%);
+  border-color: rgba(120, 229, 236, 0.25);
+
+  h2 {
+    color: #f4fbff;
+  }
+
+  p {
+    color: rgba(244, 251, 255, 0.74);
+  }
+
+  code {
+    color: #85eff5;
+    background: rgba(120, 229, 236, 0.1);
+  }
+}
+
 @media (max-width: 991px) {
   .soar-hero {
     grid-template-columns: 1fr;
