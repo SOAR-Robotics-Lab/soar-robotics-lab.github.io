@@ -235,8 +235,16 @@
         <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
       {% endif %}
       {% if entry.html %}
+        {% assign html_label = 'HTML' %}
+        {% if entry.html_label %}
+          {% assign html_label = entry.html_label %}
+        {% elsif entry.html contains 'ieeexplore.ieee.org' %}
+          {% assign html_label = 'IEEE Xplore' %}
+        {% elsif entry.html contains 'doi.org' %}
+          {% assign html_label = 'Publisher' %}
+        {% endif %}
         {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">{{ html_label }}</a>
         {% else %}
           <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
         {% endif %}
