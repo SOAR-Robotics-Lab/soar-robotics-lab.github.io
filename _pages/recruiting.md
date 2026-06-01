@@ -2,14 +2,14 @@
 layout: page
 permalink: /zh/recruiting/
 title: 招生
-description: SOARLAB 2027 届招生信息。
+description: SOARLAB 2027 级招生信息。
 nav: true
 nav_order: 1
 lang: zh
 translation_url: /recruiting/
 ---
 
-SOARLAB（飞行通用智能课题组）现面向 2027 届相关专业同学，招收对具身智能、机器人及核心算法感兴趣的直博生、普博生和硕士研究生。课题组即将在南京大学智能科学与技术学院运行，由徐浩老师独立指导。
+SOARLAB（飞行通用智能课题组）现面向 2027 级相关专业同学，招收对具身智能、机器人及核心算法感兴趣的直博生、普博生和硕士研究生。课题组即将在南京大学智能科学与技术学院运行，由徐浩老师独立指导。
 
 ## 研究主线与平台
 
