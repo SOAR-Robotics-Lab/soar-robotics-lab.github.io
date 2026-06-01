@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-招生",
           title: "招生",
-          description: "SOARLAB 2027 届招生信息。",
+          description: "SOARLAB 2027 级招生信息。",
           section: "Navigation",
           handler: () => {
             window.location.href = "/zh/recruiting/";
@@ -98,8 +98,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-soarlab-飞行通用智能课题组-即将在南京大学智能科学与技术学院开展工作-面向-2027-届招收直博生-普博生和硕士研究生",
-          title: 'SOARLAB（飞行通用智能课题组）即将在南京大学智能科学与技术学院开展工作，面向 2027 届招收直博生、普博生和硕士研究生。',
+            },},{id: "news-soarlab-飞行通用智能课题组-即将在南京大学智能科学与技术学院开展工作-面向-2027-级招收直博生-普博生和硕士研究生",
+          title: 'SOARLAB（飞行通用智能课题组）即将在南京大学智能科学与技术学院开展工作，面向 2027 级招收直博生、普博生和硕士研究生。',
           description: "",
           section: "News",},{id: "news-2027-招生方向",
           title: '2027 招生方向',
