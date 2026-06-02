@@ -38,6 +38,16 @@ translation_url: /zh/open-source/
 
 <div class="soar-open-grid">
   <article class="soar-open-card">
+    <p class="soar-open-card__tag">Humanoid Teleoperation</p>
+    <img class="soar-open-card__image" src="https://ytr-zhang.github.io/TISA/resources/images/deployment_montage.jpg" alt="TISA humanoid teleoperation deployment montage">
+    <h3>TISA</h3>
+    <p>Terrain- and intent-aware shared autonomy for humanoid teleoperation. TISA preserves direct whole-body authority when predicted safe and delegates executable intent near risky terrain contacts.</p>
+    <div class="soar-open-card__links">
+      <a href="https://ytr-zhang.github.io/TISA/" rel="external nofollow noopener" target="_blank">Project</a>
+    </div>
+  </article>
+
+  <article class="soar-open-card">
     <p class="soar-open-card__tag">TRO 2025</p>
     <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/fint.jpg' | relative_url }}" alt="FINT tunnel flight preview">
     <h3>FINT</h3>
