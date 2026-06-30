@@ -38,6 +38,17 @@ translation_url: /zh/open-source/
 
 <div class="soar-open-grid">
   <article class="soar-open-card">
+    <p class="soar-open-card__tag">IROS 2026</p>
+    <img class="soar-open-card__image" src="{{ '/assets/img/publication_preview/aug.jpg' | relative_url }}" alt="AUG figure 1 preview">
+    <h3>AUG</h3>
+    <p>A perception-aware UAV graph-based planner for GNSS-denied navigation in feature-sparse environments. It routes through structure-rich corridors and keeps the onboard estimator better conditioned.</p>
+    <div class="soar-open-card__links">
+      <a href="https://fegkkd.github.io/IROS2026AUG/" rel="external nofollow noopener" target="_blank">Project</a>
+      <a href="{{ '/publications/#feng2026aug' | relative_url }}">Paper</a>
+    </div>
+  </article>
+
+  <article class="soar-open-card">
     <p class="soar-open-card__tag">Humanoid Teleoperation</p>
     <img class="soar-open-card__image" src="https://ytr-zhang.github.io/TISA/resources/images/deployment_montage.jpg" alt="TISA humanoid teleoperation deployment montage">
     <h3>TISA</h3>
