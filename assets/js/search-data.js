@@ -114,6 +114,11 @@ ninja.data = [{
           description: "Distributed perception, state estimation, SLAM, and autonomous swarm systems.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/aerial-swarm-slam/";
+            },},{id: "projects-aug",
+          title: 'AUG',
+          description: "Perception-aware UAV graph-based planning for GNSS-denied navigation in feature-sparse environments.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/aug/";
             },},{id: "projects-robotics-agent",
           title: 'Robotics Agent',
           description: "Agent-oriented perception, world models, planning, control, and simulation.",
